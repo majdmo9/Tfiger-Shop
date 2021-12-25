@@ -1,0 +1,10 @@
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  justify-content: space-between;
+  margin-top: 3vh;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 3vh;
+}

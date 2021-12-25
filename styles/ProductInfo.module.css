@@ -1,0 +1,36 @@
+.productContainer {
+  display: flex;
+  height: 100vh;
+  justify-content: space-between;
+}
+.imageContainer {
+  display: flex;
+  margin-right: auto;
+  margin-bottom: auto;
+  width: 35%;
+  height: 80vh;
+  position: relative;
+  border-radius: 15px;
+}
+.productInfoDiv {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  align-items: left;
+}
+.buttonsDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 30%;
+  height: 13vh;
+  margin-left: auto;
+  margin-right: 2vw;
+}
+.buttonsDiv button {
+  font-size: 1.5vw;
+  height: 5vh;
+}
+.productdescription {
+  width: 98%;
+}

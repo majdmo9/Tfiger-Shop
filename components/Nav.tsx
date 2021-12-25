@@ -12,6 +12,7 @@ interface IProps {
   theme: any;
   handleSearchChange: (e: any) => void;
   handleSearchKeyPress: (e: any) => void;
+  handleLogoClick: () => void;
 }
 const Search = styled("div")(({ theme }) => ({
   color: theme.palette.primary.light,
@@ -59,6 +60,7 @@ const Nav: FunctionComponent<IProps> = ({
   theme,
   handleSearchKeyPress,
   handleSearchChange,
+  handleLogoClick,
 }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -66,11 +68,16 @@ const Nav: FunctionComponent<IProps> = ({
         <Toolbar>
           <SideBar theme={theme} />
           <Typography
+            onClick={handleLogoClick}
             color={theme.palette.primary.light}
             variant="h4"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            sx={{
+              cursor: "pointer",
+              flexGrow: 1,
+              display: { xs: "none", sm: "block" },
+            }}
           >
             T- Figer
           </Typography>

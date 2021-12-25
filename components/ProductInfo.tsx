@@ -5,6 +5,8 @@ import Image from "next/image";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import styles from "../styles/ProductInfo.module.css";
+import { GlassMagnifier } from "react-image-magnifiers";
+
 interface Product {
   productInfo: IProduct;
 }
@@ -12,17 +14,16 @@ const ProductInfo: FunctionComponent<Product> = ({ productInfo }) => {
   return (
     <div className={styles.productContainer}>
       <div className={styles.imageContainer}>
-        <Image
-          layout="fill"
-          objectFit="contain"
-          src={productInfo.image}
-          alt={productInfo.title}
-          property="true"
+        <GlassMagnifier
+          className={styles.glassMagnifier}
+          imageSrc={productInfo.image}
+          imageAlt={productInfo.title}
+          largeImageSrc={productInfo.image}
         />
       </div>
       <div className={styles.productInfoDiv}>
         <h1>{productInfo.title}</h1>
-        <h2>{productInfo.brand}</h2>
+        <h2>{`Brand: ${productInfo.brand}`}</h2>
         <Rating rating={productInfo.rating} />
         <h4>{`Reviews: ${productInfo.reviewsNumber}`}</h4>
         <h4>{`Category: ${productInfo.category}`}</h4>

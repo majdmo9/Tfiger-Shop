@@ -14,6 +14,7 @@ import image1 from "../assets/images/beach.jpg";
 import image2 from "../assets/images/room.jpg";
 import image3 from "../assets/images/smart-watch.jpg";
 
+const images: StaticImageData[] = [image1, image2, image3];
 const theme = createTheme({
   palette: {
     primary: {
@@ -62,63 +63,31 @@ const Shop: FunctionComponent = () => {
               handleSearchChange(e);
             }}
             handleSearchKeyPress={(e: any) => handleSearchKeyPress(e)}
+            handleLogoClick={() => {
+              setProductClicked(undefined);
+            }}
           />
           {!productClicked ? (
             <>
               <Carousel className={styles.carousel}>
-                <Carousel.Item className={styles.carouselIetem} interval={2000}>
-                  <div className={styles.imageWrapper}>
-                    <Image
-                      objectFit="cover"
-                      layout="fill"
-                      className="mt-3"
-                      src={image1}
-                      alt="First slide"
-                      priority
-                    />
-                  </div>
-                  <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>
-                      Nulla vitae elit libero, a pharetra augue mollis interdum.
-                    </p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item className={styles.carouselIetem} interval={2000}>
-                  <div className={styles.imageWrapper}>
-                    <Image
-                      objectFit="cover"
-                      layout="fill"
-                      className="mt-3"
-                      src={image2}
-                      alt="First slide"
-                    />
-                  </div>
-                  <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item interval={2000} className={styles.carouselIetem}>
-                  <div className={styles.imageWrapper}>
-                    <Image
-                      objectFit="cover"
-                      layout="fill"
-                      className="mt-3"
-                      src={image3}
-                      alt="First slide"
-                    />
-                  </div>
-                  <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>
-                      Praesent commodo cursus magna, vel scelerisque nisl
-                      consectetur.
-                    </p>
-                  </Carousel.Caption>
-                </Carousel.Item>
+                {images.map((image) => (
+                  <Carousel.Item
+                    className={styles.carouselIetem}
+                    interval={2000}
+                    key={image.src}
+                  >
+                    <div className={styles.imageWrapper}>
+                      <Image
+                        objectFit="cover"
+                        layout="fill"
+                        className="mt-3"
+                        src={image}
+                        alt="First slide"
+                        priority
+                      />
+                    </div>
+                  </Carousel.Item>
+                ))}
               </Carousel>
 
               <ProductsGrid
